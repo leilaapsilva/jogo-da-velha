@@ -1,0 +1,141 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package jogodavelha;
+import java.util.Scanner;
+/**
+ *
+ * @author Leila
+ */
+public class JogoDaVelha {
+
+    /**
+     * @param args the command line arguments
+     */
+    static String vezDoX (int x, int y, String tabuleiro[][]){
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Coloque a linha (x)");
+        x = entrada.nextInt();
+        System.out.println("Coloque a coluna (y)");
+        y = entrada.nextInt();
+        return tabuleiro[x][y];
+    }
+    static String vezDoO (int x, int y, String tabuleiro[][]){
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Coloque a linha (x)");
+        x = entrada.nextInt();
+        System.out.println("Coloque a coluna (y)");
+        y = entrada.nextInt();
+        return tabuleiro[x][y];
+    }
+    static boolean FimDeJogo (String tabuleiro[][]){
+        boolean fimdejogo;
+        if (tabuleiro[1][1].equals(tabuleiro[1][2])){
+         if(tabuleiro[1][2].equals(tabuleiro[1][3])){
+                     return fimdejogo = true;
+        }
+    }
+        if (tabuleiro[2][1].equals(tabuleiro[2][2])){
+            if (tabuleiro[2][2].equals(tabuleiro[2][3])) {
+                return fimdejogo = true;
+            }
+    }
+        if (tabuleiro[3][1].equals(tabuleiro[3][2])){
+            if(tabuleiro[3][2].equals(tabuleiro[3][3])){
+                return fimdejogo = true;
+            }
+    }
+        if (tabuleiro[1][1].equals(tabuleiro[2][1])){
+            if (tabuleiro[2][1].equals(tabuleiro[3][1])){
+                return fimdejogo = true;
+            }
+      }
+        if (tabuleiro[1][2].equals(tabuleiro[2][2])){
+            if (tabuleiro[2][2].equals(tabuleiro[3][2])){
+                return fimdejogo = true;
+    }
+        }
+        if (tabuleiro[1][3].equals(tabuleiro[2][3])){
+            if (tabuleiro[2][3].equals(tabuleiro[3][3])){
+                return fimdejogo = true;
+    }
+        }
+        if (tabuleiro[1][1].equals(tabuleiro[2][2])){
+            if(tabuleiro[2][2].equals(tabuleiro[3][3])){
+                return fimdejogo = true;
+    }
+        }
+        if (tabuleiro[1][3].equals(tabuleiro[2][2])){
+            if(tabuleiro[2][2].equals(tabuleiro[3][1])){
+                return fimdejogo = true;
+    }
+        }
+    }
+    static void Imprime (){
+        for (int y = 1; y <= 3; y++){
+            System.out.println(" | "+tabuleiro[1][y]);
+        }
+        for (int y = 1; y <=3; y++){
+            System.out.println(" | "+tabuleiro[2][y]);
+        }
+        for (int y = 1; y <= 3; y++){
+            System.out.println(" | "+tabuleiro[3][y]);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        String[][] tabuleiro = new String[3][3];
+        int i = 0,j = 0,r;
+        /* Inicia Tabuleiro
+        */               
+        for(int x = 1; x <= 3; x++){
+            for(int y = 1; y <= 3; y++){
+                tabuleiro[x][y] = " ";
+            }
+        }
+        System.out.println("Quem começa jogando (o ou x)");
+        String opt = entrada.nextLine();
+        boolean valido = false;
+        String vezDeQuem = " ";
+        while (valido == true ){ 
+            switch (opt){
+                case "x":
+                    vezDoX(i,j,tabuleiro[][]);
+        	    valido = true;				
+                    vezDeQuem = "x"; 
+                    break;
+                case "y":
+                    vezDoO(i,j);
+        	    valido = true;				
+                    vezDeQuem = "o"; 
+                    break;
+                default:
+                    System.out.println("Vc não escolheu uma opção valida! (use "
+                            + "letra minuscula)");
+                    valido = false;
+                    break;
+            }
+        }
+        /*
+            Loop das jogadas
+        */
+        do
+        {
+            if ("x".equals(vezDeQuem)){
+                vezDeQuem = "o";
+                String jogada = vezDoO(i,j,tabuleiro[][]);
+                boolean fim = FimDeJogo(tabuleiro[][]);
+            else{
+                if("o".equals(vezDeQuem)){
+                        vezDeQuem = "x";
+                        vezDoX(i,j,tabuleiro[][]);
+                        fim = FimDeJogo();                                   
+                                        }
+                }
+            }
+        while (fim != true)}            
+        }
+    
+}
