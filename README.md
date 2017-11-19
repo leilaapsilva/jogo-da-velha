@@ -1,1 +1,3 @@
-# jogo-da-velha-
+# jogo-da-velha
+
+Implementação em C.
