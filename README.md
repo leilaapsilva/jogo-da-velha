@@ -1,3 +1,3 @@
 # jogo-da-velha
 
-Implementação em C.
+Implementações em C e Java do jogo da velha
